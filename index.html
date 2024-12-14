@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños, Natalia</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+        }
+        .card {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 1s ease;
+        }
+        .card.open {
+            transform: rotateY(-180deg);
+        }
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+        .front {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .front img {
+            width: 80px;
+        }
+        .back {
+            background: #fff;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+        .back h1 {
+            color: #ff6f61;
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .back p {
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+        }
+        .back img {
+            width: 100px;
+            margin-top: 10px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background: #ff8a75;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="card">
+            <!-- Parte frontal -->
+            <div class="front">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/71-EeSx9gGL._SL1500_.jpg" alt="Snoopy enamorado">
+            </div>
+            <!-- Parte trasera -->
+            <div class="back">
+                <h1>¡Feliz Cumpleaños mi amorcito de chingos de la vida!</h1>
+                <p>Hoy es un día especial para ti y quise hacer este detallito, como sabes soy aún un principiante pero eso no significa que no pueda aprender cosas más avanzadas solo para que tú puedas tener lo mejor.</p>
+                <img src="https://cdn.elpopular.mx/notas/secciones/hello/2019/08/10/feliz-cumpleanos-snoopy-el-beagle-cumple-71-anos/938aaa5e8cd7ef60211c99244a43c43a.png" alt="Snoopy cumpleaños">
+            </div>
+        </div>
+    </div>
+    <button class="button" onclick="toggleCard()">Abrir/Cerrar Carta</button>
+
+    <script>
+        const card = document.getElementById('card');
+        function toggleCard() {
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
